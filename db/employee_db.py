@@ -8,6 +8,8 @@ class EmployeeInDB(BaseModel):
     password: str
     rol: str
     task: Optional[str] = None
+    email: Optional[str]
+    mobile: Optional[str]
     logged_in: bool
 
 
@@ -18,6 +20,10 @@ database_employees = {
                                  "password": "123456",
                                  "rol": "operator",
                                  "logged_in": False}),
+    "admin1": EmployeeInDB(**{"username": "admin1",
+                              "password": "admin",
+                              "rol": "admin",
+                              "logged_in": False}),
 }
 
 
@@ -31,3 +37,7 @@ def get_employee(username: str):
 def update_employee(employee_in_db: EmployeeInDB):
     database_employees[employee_in_db.username] = employee_in_db
     return employee_in_db
+
+
+def display_all():
+    return database_employees

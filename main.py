@@ -1,7 +1,8 @@
 from db.employee_db import EmployeeInDB
-from db.employee_db import update_employee, get_employee
+from db.employee_db import update_employee, get_employee, display_all
 from models.employee_models import EmployeeLogin, EmployeeLogout, EmployeeTask
 from fastapi import FastAPI, HTTPException
+from typing import Dict
 
 api = FastAPI(
     title="Sprint 2",
@@ -56,3 +57,8 @@ async def assign_task(employee_task: EmployeeTask):
     update_employee(employee_in_db)
 
     return employee_in_db
+
+@api.get("/employees/", response_model=Dict[str,EmployeeInDB])
+async def find_all_employees():
+    employee_db = display_all()
+    return employee_db
