@@ -7,6 +7,7 @@ class EmployeeInDB(BaseModel):
     username: str
     password: str
     rol: str
+    address: str
     task: Optional[str] = None
     email: Optional[str]
     mobile: Optional[str]
@@ -19,8 +20,9 @@ database_employees = Dict[str, EmployeeInDB]
 database_employees = {
     "empleado1": EmployeeInDB(**{"username": "empleado1",
                                  "password": "123456",
-                                 "rol": "operator",
+                                 "rol": "Operador",
                                  "task":"Ir por pan",
+                                 "address":"Cra1 #2-3",
                                  "email":"empleado1@email.com.co",
                                  "mobile":"300 123 4567",
                                  "logged_in": False,
@@ -29,6 +31,7 @@ database_employees = {
                               "password": "admin",
                               "rol": "admin",
                                "task":"Comer el pan",
+                               "address":"Cl1 #2-3",
                                "email":"admin@email.com.co",
                                "mobile":"300 890 1234",
                               "logged_in": False,
