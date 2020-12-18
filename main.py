@@ -16,6 +16,7 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:8080",
+    "https://mg-sprint3.herokuapp.com"
 ]
 
 api.add_middleware(
